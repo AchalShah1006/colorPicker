@@ -1,3 +1,5 @@
+Live Demo : `https://achalshah1006.github.io/colorPicker/`
+
 ## Available Scripts
 
 In the project directory, you can run:
