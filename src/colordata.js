@@ -1,0 +1,77 @@
+export const BLUE_COLOR = [
+  "#419ed5",
+  "#28BDD7",
+  "#003399",
+  "#00308F",
+  "#000080",
+  "#084890",
+  "#082567",
+  "#1d1160",
+  "#002244",
+]
+export const RED_COLOR = [
+  "#F08080",
+  "#F05361",
+  "#D03058",
+  "#E25822",
+  "#800000",
+  "#FF4500",
+  "#c80815",
+  "#800000",
+  "#660000",
+]
+export const GREEN_COLOR = [
+  "#4FFFB0",
+  "#32de84",
+  "#66FF00",
+  "#7FFF00",
+  "#00563B",
+  "#1B4D3E",
+  "#556B2F",
+  "#004526",
+  "#006241",
+]
+export const YELLOW_COLOR = [
+  "#F0E68C",
+  "#FFD700",
+  "#FFC72C",
+  "#FFFF00",
+  "#FF7F50",
+  "#FEBE10",
+  "#FFFDA1",
+  "#F4C430",
+  "#FF9933",
+]
+export const BLACK_COLOR = [
+  "#414345",
+  "#232526",
+  "#2e242c",
+  "#110c11",
+  "#0f0f0f",
+  "#050505",
+  "#28243A ",
+  "#342e2e",
+  "#131313",
+]
+export const PURPLE_COLOR = [
+  "#df73ff",
+  "#9400d3",
+  "#9966cc",
+  "#8a2be2",
+  "#bf00ff",
+  "#8a2be2",
+  "#6f4685",
+  "#563c5c",
+  "#7851a9",
+]
+export const DEFAULT_COLOR = [
+  "red",
+  "blue",
+  "green",
+  "orange",
+  "pink",
+  "black",
+  "yellow",
+  "skyblue",
+  "purple",
+]
