@@ -1,4 +1,4 @@
-Live Demo : `https://achalshah1006.github.io/colorPicker/`
+Live Demo : https://achalshah1006.github.io/colorPicker/
 
 ## Available Scripts
 
