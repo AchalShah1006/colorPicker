@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import { Grid, Snackbar } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -37,10 +39,20 @@ const useStyles = makeStyles({
 
 
 export default function GridBox(props) {
-  const [open, setOpen] = useState(false);  // set SnackBar open/close.
-  const [clr, setClr] = useState();         // set colour value of OnClick event.
-  
+
+  const [color, setColor] = useState();         // set colour value of OnClick event.
+  // console.log('xyz',props.state);
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
 
   // Function To Save Colour Value To Clip-Board.
   const copyColour = (val) => {
@@ -50,37 +62,40 @@ export default function GridBox(props) {
     copyTxt.select();
     document.execCommand('copy');
     copyTxt.remove();
-  }
-  
-  // To Close SnackBar
-  const handleClose = (event, reason) => {
-    setOpen(false);   // set SnackBar Close
-  }
+  };
 
   const handleChange = (val) => {
-    setClr(val);      // Set clr variable's value
-    setOpen(true);    // set SnackBar Open
+    setColor(val);      // Set clr variable's value
+    setOpen(true);
     copyColour(val);  // Call copyColour Function To save value to Clip-Board.
-    document.getElementById('root').style.backgroundColor = val;  // Set Document's Background Colour.
-  }
+    if(props.state.checked === true){
+      document.getElementById('appBar').style.backgroundColor = val;  // Set Document's Background Colour.
+    }
+    else{
+      document.getElementById('root').style.backgroundColor = val;  // Set Document's Background Colour.
+    }
+  };
+
   return (
-    <Card className={classes.root}> 
-          {props.array.map((text, index)=>(
-            <Grid 
-            key={text} 
-            item xs 
-            className={classes.color} 
-            style={{ backgroundColor: text  }} 
-            onClick={key => {handleChange(text)}} 
-            >
-              <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-                <Alert severity="success">
-                  Copied {clr} !
-                </Alert>
-              </Snackbar>
-            </Grid>
-          ))}
-          
+    <Card className={classes.root}>
+      {props.array.map((text, index) => (
+        <Grid
+          key={text}
+          item
+          xs
+          className={classes.color}
+          style={{ backgroundColor: text }}
+          onClick={(key) => {
+            handleChange(text);
+          }}
+        >
+          <Snackbar open={open} autoHideDuration={200} onClose={handleClose}>
+        <Alert severity="success">
+          {color} Copied!
+        </Alert>
+      </Snackbar>
+        </Grid>
+      ))}
     </Card>
   );
 }

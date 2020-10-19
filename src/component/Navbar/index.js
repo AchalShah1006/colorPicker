@@ -1,9 +1,5 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+import { AppBar, Toolbar, IconButton, Typography, InputBase, Switch } from '@material-ui/core';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
@@ -60,26 +56,50 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
-
+export default function SearchAppBar(props) {
+  // console.log('abc',state);
   const classes = useStyles();
 
   const handleChange = (val) => {
     if(val === ''){
-        document.getElementById('root').style.backgroundColor = '#FFF';    
+        document.getElementById('appBar').style.backgroundColor = '#3f51b5';
+        document.getElementById('root').style.backgroundColor = '#FFF';
     }
-    document.getElementById('root').style.backgroundColor = val;
+    else{ 
+    if(props.state.checked === true){
+      document.getElementById('appBar').style.backgroundColor = val;
+    }
+    else{
+      document.getElementById('root').style.backgroundColor = val;
+    }
   }
-
+  }
+ 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed" id="appBar">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             Colour Picker
           </Typography>
-          <IconButton style={{ color: 'white' }} onClick={key => {handleChange('#FFF')}}>
+         
+          <IconButton
+            style={{ color: "white" }}
+            onClick={(key) => {
+              handleChange('');
+            }}
+          >
             <RotateLeftIcon />
+          </IconButton>
+          <IconButton>
+          <Switch
+              checked={props.state.checked}
+              onChange={props.handle}
+              name="checked"
+              inputProps={{
+                "aria-label": "secondary checkbox",
+              }}
+            />
           </IconButton>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -91,8 +111,10 @@ export default function SearchAppBar() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              inputProps={{ 'aria-label': 'search' }}
-              onChange={key => {handleChange(key.target.value)}}
+              inputProps={{ "aria-label": "search" }}
+              onChange={(key) => {
+                handleChange(key.target.value);
+              }}
             />
           </div>
         </Toolbar>
