@@ -7,11 +7,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
+    display: "block",
     margin: "auto",
+    background: "-webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    "-webkit-background-clip": "text",
+    "-webkit-text-fill-color": "transparent",
   },
 }))
 
@@ -21,8 +21,8 @@ const SearchAppBar = (props) => {
   return (
     <div className={classes.root}>
       <Toolbar style={{ backgroundColor: "#121212", color: "#FFF" }}>
-        <Typography className={classes.title} variant="h6" noWrap>
-          Colour Picker
+        <Typography className={classes.title} variant="h4" noWrap>
+          UI Color Picker
         </Typography>
       </Toolbar>
     </div>

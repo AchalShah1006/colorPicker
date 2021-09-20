@@ -61,7 +61,7 @@ const ColorCard = (props) => {
       />
       <div className={classes.fontColor}>{color.toUpperCase()}</div>
       <Snackbar open={saved} autoHideDuration={500} onClose={handleClose}>
-        <Alert severity="success">{color} Copied!</Alert>
+        <Alert severity="success">Copied! {color.toUpperCase()}</Alert>
       </Snackbar>
     </Box>
   )

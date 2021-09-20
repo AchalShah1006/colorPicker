@@ -54,15 +54,15 @@ export const BLACK_COLOR = [
   "#131313",
 ]
 export const PURPLE_COLOR = [
-  "#d2b48c",
-  "#996515",
-  "#35281E",
-  "#6f4e37",
-  "#893f45",
-  "#5b342e",
-  "#78675d",
-  "#321414",
-  "#ba9238",
+  "#df73ff",
+  "#9400d3",
+  "#9966cc",
+  "#8a2be2",
+  "#bf00ff",
+  "#8a2be2",
+  "#6f4685",
+  "#563c5c",
+  "#7851a9",
 ]
 export const DEFAULT_COLOR = [
   "red",
