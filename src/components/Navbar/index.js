@@ -1,5 +1,9 @@
 import React from "react"
-import { Toolbar, Typography } from "@material-ui/core"
+import {
+  Toolbar,
+  Typography,
+  // , Breadcrumbs, Link
+} from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +28,14 @@ const SearchAppBar = (props) => {
         <Typography className={classes.title} variant="h4" noWrap>
           UI Color Picker
         </Typography>
+        {/* <Breadcrumbs aria-label="breadcrumb" style={{ color: "#FFF" }}>
+          <Link color="primary" href="/">
+            Login
+          </Link>
+          <Link color="primary" href="/getting-started/installation/">
+            Sign Up
+          </Link>
+        </Breadcrumbs> */}
       </Toolbar>
     </div>
   )

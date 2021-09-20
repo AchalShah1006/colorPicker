@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Box, Card, Snackbar } from "@material-ui/core"
+import { Box, Button, Card, Snackbar, Tooltip } from "@material-ui/core"
 import MuiAlert from "@material-ui/lab/Alert"
 
 function Alert(props) {
@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     fontWeight: 600,
     textAlign: "center",
     marginTop: "0.5rem",
+  },
+  star: {
+    verticalAlign: "middle",
+    fontSize: "14px",
+    marginLeft: "0.5em",
+    color: "#FFF",
   },
 })
 
@@ -59,7 +65,12 @@ const ColorCard = (props) => {
         style={{ backgroundColor: color }}
         onClick={() => handleClick(color)}
       />
-      <div className={classes.fontColor}>{color.toUpperCase()}</div>
+      <div className={classes.fontColor}>
+        {color.toUpperCase()}
+        {/* <Tooltip title="Add to Favorite" className={classes.star}>
+          <span className="material-icons">star</span>
+        </Tooltip> */}
+      </div>
       <Snackbar open={saved} autoHideDuration={500} onClose={handleClose}>
         <Alert severity="success">Copied! {color.toUpperCase()}</Alert>
       </Snackbar>
