@@ -7,12 +7,14 @@ import {
   GREEN_COLOR,
   YELLOW_COLOR,
   PURPLE_COLOR,
+  BLACK_COLOR,
   DEFAULT_COLOR,
 } from "./colordata"
 import Navbar from "./components/Navbar"
 import Section from "./containers/Section"
 
 import "./App.css"
+import Footer from "./components/Footer"
 
 const useStyles = makeStyles({
   root: {
@@ -41,8 +43,10 @@ function App() {
         <Section colorGroup="Green" colors={GREEN_COLOR} />
         <Section colorGroup="Yellow" colors={YELLOW_COLOR} />
         <Section colorGroup="Purple" colors={PURPLE_COLOR} />
+        <Section colorGroup="Black" colors={BLACK_COLOR} />
         <Section colorGroup="Defaults" colors={DEFAULT_COLOR} />
       </Container>
+      <Footer />
     </div>
   )
 }
