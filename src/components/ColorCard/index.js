@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Box, Button, Card, Snackbar, Tooltip } from "@material-ui/core"
+import { Box, Card, Snackbar } from "@material-ui/core"
 import MuiAlert from "@material-ui/lab/Alert"
+import { CopyToClipboard } from "react-copy-to-clipboard"
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
@@ -16,18 +17,13 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
     width: 150,
     borderRadius: "10px",
+    border: "1px solid #FFF",
   },
   fontColor: {
     color: "#FFF",
     fontWeight: 600,
     textAlign: "center",
     marginTop: "0.5rem",
-  },
-  star: {
-    verticalAlign: "middle",
-    fontSize: "14px",
-    marginLeft: "0.5em",
-    color: "#FFF",
   },
 })
 
@@ -43,34 +39,20 @@ const ColorCard = (props) => {
     setSaved(false)
   }
 
-  // Function To Save Colour Value To Clip-Board.
-  const copyColour = (val) => {
-    let copyTxt = document.createElement("textarea")
-    copyTxt.innerText = val
-    document.body.appendChild(copyTxt)
-    copyTxt.select()
-    document.execCommand("copy")
-    copyTxt.remove()
-  }
-
   const handleClick = (val) => {
     setSaved(true)
-    copyColour(val)
   }
 
   return (
     <Box className={classes.root}>
-      <Card
-        className={classes.card}
-        style={{ backgroundColor: color }}
-        onClick={() => handleClick(color)}
-      />
-      <div className={classes.fontColor}>
-        {color.toUpperCase()}
-        {/* <Tooltip title="Add to Favorite" className={classes.star}>
-          <span className="material-icons">star</span>
-        </Tooltip> */}
-      </div>
+      <CopyToClipboard text={color} onCopy={handleClick}>
+        <Card className={classes.card} style={{ backgroundColor: color }} />
+      </CopyToClipboard>
+
+      {/* Color Hex Text */}
+      <div className={classes.fontColor}>{color.toUpperCase()}</div>
+
+      {/* Snackbar Success message */}
       <Snackbar open={saved} autoHideDuration={500} onClose={handleClose}>
         <Alert severity="success">Copied! {color.toUpperCase()}</Alert>
       </Snackbar>
